@@ -11,12 +11,10 @@ import {
   HiArrowDownOnSquare,
   HiArrowUpOnSquare,
   HiEye,
-  HiEyeDropper,
   HiTrash,
 } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout";
-import { deleteBooking } from "../../services/apiBookings";
 import Modal from "./../../ui/Modal";
 import ConfirmDelete from "./../../ui/ConfirmDelete";
 import { useDeleteBooking } from "./useDeleteBooking";
@@ -127,14 +125,12 @@ function BookingRow({
               </Menus.Button>
             )}
             <Modal.Open opens={"delete"}>
-              <Menus.Button icon={<HiTrash />} >
-                Delete booking
-              </Menus.Button>
+              <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
             </Modal.Open>
           </Menus.List>
           <Modal.Window name={"delete"}>
             <ConfirmDelete
-            disabled={isDeletingBooking}
+              disabled={isDeletingBooking}
               resource={"booking"}
               onConfirm={() => {
                 deleteBooking(bookingId);
