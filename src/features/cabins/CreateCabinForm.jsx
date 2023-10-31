@@ -7,13 +7,12 @@ import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 
-import { useCreateCabin } from "./useCreateCabin.js";
-import { useEditCabin } from "./useEditCabin.js";
+import { useCreateCabin } from "./useCreateCabin";
+import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { isCreating, createCabin } = useCreateCabin();
   const { isEditing, editCabin } = useEditCabin();
-
   const isWorking = isCreating || isEditing;
 
   const { id: editId, ...editValues } = cabinToEdit;
@@ -31,7 +30,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
         {
-          onSuccess: () => {
+          onSuccess: (data) => {
             reset();
             onCloseModal?.();
           },
@@ -39,17 +38,18 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       );
     else
       createCabin(
-        { ...data, image: data.image[0] },
+        { ...data, image: image },
         {
-          onSuccess: () => {
+          onSuccess: (data) => {
             reset();
             onCloseModal?.();
           },
         }
       );
   }
+
   function onError(errors) {
-    console.log(errors);
+    // console.log(errors);
   }
 
   return (
@@ -132,7 +132,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         <FileInput
           id="image"
           accept="image/*"
-          type="file"
           {...register("image", {
             required: isEditSession ? false : "This field is required",
           })}
@@ -149,7 +148,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           Cancel
         </Button>
         <Button disabled={isWorking}>
-          {isEditSession ? "Edit Cabin" : "Create New Cabin"}
+          {isEditSession ? "Edit cabin" : "Create new cabin"}
         </Button>
       </FormRow>
     </Form>

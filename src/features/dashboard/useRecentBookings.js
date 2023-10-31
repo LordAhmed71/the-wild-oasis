@@ -5,10 +5,10 @@ import { getBookingsAfterDate } from "../../services/apiBookings";
 
 export function useRecentBookings() {
   const [searchParams] = useSearchParams();
+
   const numDays = !searchParams.get("last")
     ? 7
     : Number(searchParams.get("last"));
-
   const queryDate = subDays(new Date(), numDays).toISOString();
 
   const { isLoading, data: bookings } = useQuery({
@@ -16,5 +16,5 @@ export function useRecentBookings() {
     queryKey: ["bookings", `last-${numDays}`],
   });
 
-  return { isLoading, bookings,numDays };
+  return { isLoading, bookings };
 }

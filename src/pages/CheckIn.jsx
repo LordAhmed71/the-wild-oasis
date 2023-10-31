@@ -1,8 +1,7 @@
-import React from "react";
-import CheckinBooking from "./../features/check-in-out/CheckinBooking";
+import CheckinBooking from "../features/check-in-out/CheckinBooking";
 
-const CheckIn = () => {
+function Checkin() {
   return <CheckinBooking />;
-};
+}
 
-export default CheckIn;
+export default Checkin;
