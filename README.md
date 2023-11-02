@@ -13,23 +13,19 @@ Admin-Facing Features
 ### Dashboard:
 Administrators have access to a dashboard with advanced features for managing cabin bookings and statistics:
 
-#### 1-Booking Numbers:
-
+1-Booking Numbers:
 The application tracks the total number of cabin bookings, providing an overview of how often cabins are reserved.
 Users can filter booking numbers by date range, allowing them to analyze seasonal trends and booking patterns.
 
-#### 2-Sales:
-
+2-Sales:
 The system calculates the total revenue generated from cabin bookings, including details of each transaction.
 Sales statistics can be visualized through charts and reports, helping users understand their financial performance.
 
-#### 3-Check-ins:
-
+3-Check-ins:
 The application monitors the number of check-ins, indicating how many bookings have been successfully fulfilled.
 Check-in data is linked to specific bookings and can be used to evaluate customer satisfaction.
 
-#### 4-Occupancy Rate:
-
+4-Occupancy Rate:
 Occupancy rate is a critical metric that shows what percentage of cabin inventory is currently occupied.
 Users can view historical occupancy rates to identify peak booking periods and optimize cabin availability.
 
